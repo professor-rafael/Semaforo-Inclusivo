@@ -337,3 +337,7 @@ footer kbd {
         font-size: 0.75rem;
     }
 }
+
+h1{
+    color-interpolation-filters: linearRGB;
+}
