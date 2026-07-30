@@ -1,0 +1,339 @@
+/* ========== RESET E BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #1a1a2e;
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+main {
+    background: #16213e;
+    border-radius: 32px;
+    padding: 40px 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    border: 2px solid #0f3460;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.subtitulo {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 28px;
+}
+
+.subtitulo strong {
+    color: #ffcc00;
+}
+
+/* ========== SEMÁFORO ========== */
+.semaforo {
+    background: #0a0a1a;
+    border-radius: 60px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    max-width: 160px;
+    margin: 0 auto 24px;
+    border: 3px solid #2a2a4a;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* ========== LUZES ========== */
+.luz {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: #1a1a2e;
+    border: 3px solid #333;
+    transition: all 0.3s ease;
+    opacity: 0.25;
+    filter: grayscale(0.8);
+    position: relative;
+}
+
+/* Estado ativo (aceso) */
+.luz.ativo {
+    opacity: 1;
+    filter: grayscale(0);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    transform: scale(1.04);
+}
+
+/* Cores adaptadas para daltônicos */
+.luz.verde.ativo {
+    background: #0066CC;
+    /* Azul em vez de verde */
+    border-color: #3399FF;
+    box-shadow: 0 0 50px rgba(0, 102, 204, 0.6);
+}
+
+.luz.amarela.ativo {
+    background: #FFCC00;
+    border-color: #FFE066;
+    box-shadow: 0 0 50px rgba(255, 204, 0, 0.6);
+}
+
+.luz.vermelha.ativo {
+    background: #FF6600;
+    /* Laranja em vez de vermelho */
+    border-color: #FF9933;
+    box-shadow: 0 0 50px rgba(255, 102, 0, 0.6);
+}
+
+/* ========== FORMAS GEOMÉTRICAS ========== */
+.forma {
+    width: 36px;
+    height: 36px;
+    transition: all 0.3s ease;
+    background: #fff;
+    opacity: 0.3;
+}
+
+.luz.ativo .forma {
+    opacity: 1;
+    background: #fff;
+}
+
+/* Círculo (Verde) */
+.circulo {
+    border-radius: 50%;
+}
+
+/* Triângulo (Amarelo) */
+.triangulo {
+    width: 0;
+    height: 0;
+    background: transparent !important;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 36px solid #fff;
+    opacity: 0.3;
+}
+
+.luz.ativo .triangulo {
+    opacity: 1;
+    border-bottom-color: #fff;
+}
+
+/* Quadrado (Vermelho) */
+.quadrado {
+    border-radius: 4px;
+}
+
+/* Legenda dentro da luz */
+.legenda {
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px 8px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-top: 2px;
+}
+
+.luz.ativo .legenda {
+    opacity: 1;
+}
+
+/* ========== STATUS TEXTUAL ========== */
+.status {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 14px 10px;
+    border-radius: 16px;
+    background: #0a0a1a;
+    border: 2px solid #2a2a4a;
+    margin-bottom: 20px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.status.siga {
+    color: #3399FF;
+    border-color: #0066CC;
+}
+.status.atencao {
+    color: #FFCC00;
+    border-color: #FFCC00;
+}
+.status.pare {
+    color: #FF6600;
+    border-color: #FF6600;
+}
+
+/* ========== BOTÕES ========== */
+.controles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #2a2a4a;
+    color: #fff;
+    flex: 1 1 auto;
+    min-width: 100px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+.btn:focus-visible {
+    outline: 3px solid #ffcc00;
+    outline-offset: 3px;
+}
+
+.btn-principal {
+    background: #0066CC;
+    color: #fff;
+}
+.btn-principal:hover {
+    background: #0055AA;
+}
+
+.btn-secundario {
+    background: #661a1a;
+    color: #fff;
+}
+.btn-secundario:hover {
+    background: #881a1a;
+}
+
+.btn-terciario {
+    background: #2a5a2a;
+    color: #fff;
+}
+.btn-terciario:hover {
+    background: #3a7a3a;
+}
+
+/* ========== LEGENDA DE CORES ========== */
+.legenda-cores {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.legenda-cores span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cor-exemplo {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #555;
+}
+
+/* ========== RODAPÉ ========== */
+footer {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid #2a2a4a;
+    padding-top: 14px;
+}
+
+footer kbd {
+    background: #2a2a4a;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: #ffcc00;
+    border: 1px solid #444;
+}
+
+.pequeno {
+    margin-top: 6px;
+    font-size: 0.7rem;
+    color: #555;
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 500px) {
+    main {
+        padding: 24px 16px;
+    }
+    .semaforo {
+        max-width: 120px;
+        padding: 20px 12px;
+    }
+    .luz {
+        width: 60px;
+        height: 60px;
+    }
+    .forma {
+        width: 26px;
+        height: 26px;
+    }
+    .triangulo {
+        border-left-width: 14px;
+        border-right-width: 14px;
+        border-bottom-width: 26px;
+    }
+    .status {
+        font-size: 1.4rem;
+        min-height: 56px;
+    }
+    .btn {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+        min-width: 70px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .legenda-cores {
+        gap: 12px;
+        font-size: 0.75rem;
+    }
+}

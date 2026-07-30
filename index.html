@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semáforo Inclusivo ♿</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <main>
+        <h1>🚦 Semáforo Inclusivo</h1>
+        <p class="subtitulo">
+            Projetado para pessoas com <strong>daltonismo</strong> ou <strong>baixa visão</strong>
+        </p>
+
+        <!-- SEMÁFORO -->
+        <section class="semaforo" role="img" aria-label="Semáforo inclusivo com formas geométricas">
+
+            <!-- Luz Verde (Azul + Círculo) -->
+            <div class="luz verde" id="verde">
+                <div class="forma circulo"></div>
+                <span class="legenda">Siga</span>
+            </div>
+
+            <!-- Luz Amarela (Triângulo) -->
+            <div class="luz amarela" id="amarelo">
+                <div class="forma triangulo"></div>
+                <span class="legenda">Atenção</span>
+            </div>
+
+            <!-- Luz Vermelha (Laranja + Quadrado) -->
+            <div class="luz vermelha" id="vermelho">
+                <div class="forma quadrado"></div>
+                <span class="legenda">Pare</span>
+            </div>
+
+        </section>
+
+        <!-- STATUS TEXTUAL -->
+        <div class="status" id="status" aria-live="polite">
+            🟢 Siga
+        </div>
+
+        <!-- CONTROLES -->
+        <div class="controles">
+            <button id="btnIniciar" class="btn btn-principal">▶ Iniciar Ciclo</button>
+            <button id="btnParar" class="btn btn-secundario">⏹ Parar</button>
+            <button id="btnProximo" class="btn btn-terciario">⏭ Próximo</button>
+        </div>
+
+        <!-- LEGENDA -->
+        <div class="legenda-cores">
+            <span><span class="cor-exemplo" style="background:#0066CC;"></span> Verde = Siga</span>
+            <span><span class="cor-exemplo" style="background:#FFCC00;"></span> Amarelo = Atenção</span>
+            <span><span class="cor-exemplo" style="background:#FF6600;"></span> Vermelho = Pare</span>
+        </div>
+
+        <!-- RODAPÉ ACESSÍVEL -->
+        <footer>
+            <p>
+                ♿ <strong>Teclas:</strong> 
+                <kbd>Espaço</kbd> Iniciar/Parar · 
+                <kbd>→</kbd> Próximo estado
+            </p>
+            <p class="pequeno">Protótipo para sala de aula — UX e Acessibilidade</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
